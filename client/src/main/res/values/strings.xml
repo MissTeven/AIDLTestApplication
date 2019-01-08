@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Client</string>
+    <string name="bindservice">bindService</string>
+    <string name="setdata">setData</string>
+    <string name="getdata">getData</string>
+    <string name="unbindservice">unbindService</string>
+    <string name="getcontent">getContent</string>
+</resources>
