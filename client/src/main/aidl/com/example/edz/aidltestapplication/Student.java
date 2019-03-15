@@ -8,6 +8,36 @@ public class Student implements Parcelable {
     private String sex;
     private int age;
 
+    protected Student(Parcel in) {
+        name = in.readString();
+        sex = in.readString();
+        age = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(sex);
+        dest.writeInt(age);
+    }
+
+    public static final Creator<Student> CREATOR = new Creator<Student>() {
+        @Override
+        public Student createFromParcel(Parcel in) {
+            return new Student(in);
+        }
+
+        @Override
+        public Student[] newArray(int size) {
+            return new Student[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
     public String getName() {
         return name;
     }
@@ -32,38 +62,7 @@ public class Student implements Parcelable {
         this.age = age;
     }
 
-
     public Student() {
-    }
-
-    protected Student(Parcel in) {
-        name = in.readString();
-        sex = in.readString();
-        age = in.readInt();
-    }
-
-    public static final Creator<Student> CREATOR = new Creator<Student>() {
-        @Override
-        public Student createFromParcel(Parcel in) {
-            return new Student(in);
-        }
-
-        @Override
-        public Student[] newArray(int size) {
-            return new Student[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
-        dest.writeString(sex);
-        dest.writeInt(age);
     }
     @Override
     public String toString() {
