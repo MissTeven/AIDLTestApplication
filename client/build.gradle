@@ -23,6 +23,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    /**
+     * 添加该配置可以将aidl传递的对象放在aidl文件夹中
+     *
+     * **/
     sourceSets {
         main {
             java.srcDirs = ['src/main/java', 'src/main/aidl']
